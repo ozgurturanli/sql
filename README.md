@@ -2,6 +2,20 @@
 The below notes are from my IT school in Hamburg.
 You may always use https://dev.mysql.com/doc/refman/8.0/en/ as a refference.
 
+The SQL statements are generally divided into two groups:
+- Data Definition Language (DDL)
+- Data Manipulation Language (DML)
+------------------------------------------------------
+There are also systems that further divide into:  
+- Data Query Language
+- Data Control Language
+- Transaction Control Language
+
+DDL includes all statements with CREATE, DROP, ALTER, EXPLAIN 
+DML includes statements with INSERT, DELETE, SELECT, UPDATE  
+
+SQL consists of verbs, nouns and prepositions from the English language  
+
 MySQL (and other relational database management systems)
 
 Some groups of data types:
@@ -96,3 +110,35 @@ You can delete a user with DROP USER:
 ```sql
 DROP USER 'ozgur'@'localhost';
 ```
+
+## INSERT statements
+
+An insert statement begins with the verb INSERT  
+We continue with INTO <table name>  
+Next comes a list of columns in parentheses  
+Then comes the keyword VALUES  
+Lastly, in brackets, a list of values. The value list must match the column list (number, order, data types)  
+If you have a value for each column in the value list, then you can do without the column list  
+```sql
+INSERT INTO customers (firstname, lastname, email) VALUES
+('Hans', 'Mueller', 'hans@me.com'),
+('Franz', 'Meier', 'franz@me.com');
+SELECT * FROM customers;
+```
+
+## SELECT statements
+
+The simplest SELECT statement looks like this:
+```sql
+SELECT * FROM <table name>
+```
+Example
+```sql
+SELECT * FROM member;
+```
+
+It is also possible to only display certain columns (projection)
+```sql
+SELECT first_name, last_name FROM member;
+```
+You can use a WHERE clause to limit the number of rows
