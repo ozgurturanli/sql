@@ -142,3 +142,45 @@ It is also possible to only display certain columns (projection)
 SELECT first_name, last_name FROM member;
 ```
 You can use a WHERE clause to limit the number of rows
+
+## WHERE clause
+
+A WHERE clause contains a condition (an expression that is either true or false)
+Such expressions are formed using comparison operators and logical operators:
+
+### The comparators
+=  
+<  
+<=  
+>  
+>=  
+%  
+### The logical operators
+&& (AND)  
+|| (OR)  
+^ (XOR)  
+! (NOT)  
+IN  
+BETWEEN  
+
+For character strings, in addition to the comparison with =, there is also an operator LIKE for simple search patterns with _ and %
+_ represents any character.  
+% stands for any number of characters  
+```
+MariaDB [club_frelin]> SELECT * FROM member WHERE last_name LIKE 'P_ters';
+
++------------+-----------+------------+-------------+
+| first_name | last_name | background | aspirations |
++------------+-----------+------------+-------------+
+| Jen        | Peters    | Retraining | let's see   |
++------------+-----------+------------+-------------+
+
+
+MariaDB [club_frelin]> SELECT * FROM member WHERE last_name LIKE 'P%';
++------------+-----------+------------+-------------+
+| first_name | last_name | background | aspirations |
++------------+-----------+------------+-------------+
+| Jen        | Peters    | Retraining | let's see   |
++------------+-----------+------------+-------------+
+```
+A WHERE clause is used in a SELECT statement. You can't damage data with a SELECT statement. You can destroy data with an UPDATE or DELETE statement, so you have to be careful that the WHERE clause works correctly.  
