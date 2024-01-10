@@ -40,7 +40,7 @@ But it is always presented like this:
 Is a variable length string.
 
 A column of type VARCHAR must be defined with a Maximum Length parameter:
-```
+```sql
 CREATE TABLE user (
 first_name VARCHAR(50),
 last_name VARCHAR(50));
@@ -55,30 +55,29 @@ In a MySQL server there is the mysql database for user and rights management. Th
 
 First, you should always assign a password for the root user.  
 One possibility is:  
-```
+```sql
 ALTER USER 'root'@'<host>' IDENTIFIED BY '<password>';
 ```
 Another possibility:  
-```
+```sql
 UPDATE USER 'root'@'<host>' SET PASSWORD = '<password>';
 ```
 Example:
-```
+```sql
 ALTER USER 'root'@'127.0.0.1' IDENTIFIED BY 'a1b2c3c4';
 ```
 Or:  
-```
+```sql
 UPDATE USER 'root'@'localhost' SET PASSWORD = 'a1b2c3d4';  
 ```
-You can create a new user with CREATE USER  
-```
+You can create a new user with CREATE USER
+```sql
 CREATE USER '<username>'@'<host>' IDENTIFIED BY '<password>';
 ```
-#### Example  
-```
+#### Example
+```sql
 CREATE USER 'ozgur'@'localhost' IDENTIFIED BY 'ozgur';
 ```
-
 This creates a new user in the user table, but it does not yet have any rights.
 However, the new user must be given explicit rights:  
 There are statements with GRANT for this  
@@ -88,12 +87,12 @@ In order for the changes to take effect, the rights table must be reloaded, whic
 FLUSH PRIVILEGES;  
 
 You can revoke rights with REVOKE:  
-```
+```sql
 REVOKE INSERT ON club_frelin.* FROM 'ozgur'@'localhost';  
 FLUSH PRIVILEGES;
 ```
 
 You can delete a user with DROP USER:  
-```
+```sql
 DROP USER 'ozgur'@'localhost';
 ```
