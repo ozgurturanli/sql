@@ -184,3 +184,16 @@ MariaDB [club_frelin]> SELECT * FROM member WHERE last_name LIKE 'P%';
 +------------+-----------+------------+-------------+
 ```
 A WHERE clause is used in a SELECT statement. You can't damage data with a SELECT statement. You can destroy data with an UPDATE or DELETE statement, so you have to be careful that the WHERE clause works correctly.  
+
+"Normalization" in the context of relational databases means:
+Planning the structure of a database, specifically the structure of the individual tables and the relationships between the tables.
+An attempt is made to exclude certain sources of error
+
+The sources of error are called “anomalies”
+Insert Anomaly
+Update Anomaly
+Delete Anomaly
+
+Normalization is a procedure in several precisely defined steps.
+The individual steps of normalization are called “normal forms”
+A distinction is made between 1.NF, 2.NF, 3.NF, Boyce-Codd normal form, 4.NF, 5.NF
